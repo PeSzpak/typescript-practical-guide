@@ -86,3 +86,44 @@ function showUserID(id) {
 }
 console.log(showUserID(4));
 console.log(showUserID("EusouADM"));
+function showId(id) {
+    console.log(`O id é: ${id}`);
+}
+showId(4);
+showId("Eu o dono");
+function showCoordinates(coord) {
+    console.log(`X: ${coord.x}`);
+    console.log(`Y: ${coord.y}`);
+    console.log(`Z: ${coord.z}`);
+}
+const coordObj = { x: 10, y: 20, z: 30 };
+showCoordinates(coordObj);
+const somePerson = {
+    name: "Isabelle",
+    age: 18
+};
+//literal types
+let test;
+test = "testando";
+console.log(test);
+function showDirection(direction) {
+    console.log(`A direção é: ${direction}`);
+}
+showDirection("left");
+showDirection("right");
+//showDirection("top"); //erro, pois "top" não é um valor permitido
+//Non-null assertion operator
+const p = document.getElementById("some-p");
+console.log(p.innerText);
+//bigint
+let n;
+n = 1000n;
+console.log(n);
+n = BigInt(9007199254740991);
+console.log(n);
+//symbol
+let symbolA = Symbol("PEDRO");
+let symbolB = Symbol("PEDRO");
+console.log(symbolA === symbolB); // false, pois são símbolos únicos
+console.log(symbolA == symbolB); // false, pois são símbolos únicos
+console.log(symbolA.description); // "PEDRO"

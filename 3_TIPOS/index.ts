@@ -100,7 +100,69 @@ function showUserID(id: string | number) {
 console.log(showUserID(4));
 console.log(showUserID("EusouADM"))
 
+//type alias 
+type ID = string | number;
 
+function showId(id: ID) {
+    console.log(`O id é: ${id}`);
+}
+showId(4);
+showId("Eu o dono")
 
+//interfaces
+interface Point {
+    x: number;
+    y: number;
+    z: number;
+}
+function showCoordinates(coord: Point) {
+    console.log(`X: ${coord.x}`);
+    console.log(`Y: ${coord.y}`);
+    console.log(`Z: ${coord.z}`);
+}
+const coordObj: Point = {x: 10, y: 20, z: 30};
+showCoordinates(coordObj);
 
+// interface x type alias
+interface Person {
+    name: string;
+}
+interface Person {
+    age: number;
+}
+const somePerson: Person = {
+    name: "Isabelle",
+    age: 18
+};
+
+//literal types
+let test: "testando" 
+test = "testando";
+console.log(test);
+
+function showDirection(direction: "left" | "right" | "center") {
+    console.log(`A direção é: ${direction}`);
+}
+showDirection("left");
+showDirection("right");
+//showDirection("top"); //erro, pois "top" não é um valor permitido
+
+//Non-null assertion operator
+const p = document.getElementById("some-p")!;
+
+console.log(p.innerText);
+
+//bigint
+let n: bigint;
+n = 1000n 
+console.log(n);
+n = BigInt(9007199254740991);
+console.log(n);
+
+//symbol
+let symbolA: symbol = Symbol("PEDRO");
+let symbolB: symbol = Symbol("PEDRO");
+console.log(symbolA === symbolB); // false, pois são símbolos únicos
+console.log(symbolA == symbolB); // false, pois são símbolos únicos
+console.log(symbolA.description); // "PEDRO"
 
