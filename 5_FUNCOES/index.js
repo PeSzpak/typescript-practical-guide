@@ -60,3 +60,9 @@ function modernGreeting(name, greet) {
 }
 console.log(modernGreeting('SZPAK', 'Bodybuilder'));
 console.log(modernGreeting('rato raquitico'));
+//default value
+function somaDefault(n, m = 10) {
+    return n + m;
+}
+console.log(somaDefault(10));
+console.log(somaDefault(505050, 505051));
