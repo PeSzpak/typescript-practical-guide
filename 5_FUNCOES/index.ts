@@ -52,3 +52,12 @@ function biggestNumber<T extends number | string>(a: T, b: T): T {
 
 console.log(biggestNumber(4, 9))
 console.log(biggestNumber('4', '9'))
+
+// argument type 
+function mergeArrays<T>(arr1: T[], arr2: T[]){
+    return arr1.concat(arr2)
+}
+
+console.log(mergeArrays([1,2,3,4,5,6,7,8],[12,122,444,7456,234234]))
+console.log(mergeArrays<number | string>([4,4,9,9,15],['Pedro',' Szpak', 'Isabelle', 'Szpak', 'amor']))
+
