@@ -84,3 +84,8 @@ function doSomething(x) {
 doSomething([1, 2, 3, 4, 4, 5]);
 doSomething(12321);
 doSomething("EU AMO MINHA NAMORADA ELA É A MULHER DA MINHA VIDA");
+//NEVER
+function showErrorMessage(msg) {
+    throw new Error(msg);
+}
+showErrorMessage("DEU ERROOOOOOOOOO");
