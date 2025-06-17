@@ -115,4 +115,10 @@ function sumAll(...n: number[]) {
 console.log(sumAll(1,2,5,3,4,66,4,4,))
 console.log(sumAll(1,2,4,6,8,564,2,46,75,863,6364,2,674,5))
 
-//
+//destructuring parameter
+function showGameDetails ({name, price, kind}: {name: string, price: number, kind: string}) {
+    return `O Jogo ${name}, é do estilo ${kind} e custa a bagatela de R$${price}`
+}
+const game = {name: "Rainbow Six Siege", price:420.69, kind: "FPS"}
+console.log(showGameDetails(game))
+
