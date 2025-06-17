@@ -61,3 +61,16 @@ function mergeArrays<T>(arr1: T[], arr2: T[]){
 console.log(mergeArrays([1,2,3,4,5,6,7,8],[12,122,444,7456,234234]))
 console.log(mergeArrays<number | string>([4,4,9,9,15],['Pedro',' Szpak', 'Isabelle', 'Szpak', 'amor']))
 
+//optional arguments 
+function modernGreeting(name: string, greet?: string) {
+    if(greet) {
+        return `Olá ${greet} ${name} como você esta miLorde?`
+    } else {
+        return `Olá ${name} suave meu cria?`
+    }
+
+}
+
+console.log(modernGreeting('SZPAK', 'Bodybuilder'))
+console.log(modernGreeting('rato raquitico'))
+
