@@ -16,4 +16,17 @@ function preGreeting(f, userName) {
 preGreeting(greeting, "Szpak ama Bell");
 preGreeting(greeting, "Szpak é amado pela Bell");
 preGreeting(greeting, "Casal Perfeito");
-//
+//Generic function 
+function firstElement(arr) {
+    return arr[2];
+}
+console.log(firstElement([4, 9, 15]));
+console.log(firstElement(['aniversario namorado', 'aniversario namorada', 'aniversario do casal mais incrivel do mundo']));
+function mergeObjects(obj1, obj2) {
+    return {
+        ...obj1,
+        ...obj2
+    };
+}
+const newObject = mergeObjects({ name: 'Casal: Szpak & Bell' }, { Age: 10 / 12, classe: 'Amor Puro' });
+console.log(newObject);

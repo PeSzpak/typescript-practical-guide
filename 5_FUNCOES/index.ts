@@ -20,4 +20,19 @@ preGreeting(greeting, "Szpak ama Bell")
 preGreeting(greeting, "Szpak é amado pela Bell")
 preGreeting(greeting, "Casal Perfeito")
 
-//
+//Generic function 
+function firstElement<T>(arr: T[]): T {
+    return arr[2]
+}
+console.log(firstElement([4, 9, 15]))
+console.log(firstElement(['aniversario namorado', 'aniversario namorada', 'aniversario do casal mais incrivel do mundo']))
+
+function mergeObjects<U, T>(obj1: U, obj2: T){
+    return {
+        ...obj1,
+        ...obj2
+    }
+}
+
+const newObject = mergeObjects({name:'Casal: Szpak & Bell'}, {Age:10/12, classe:'Amor Puro' })
+console.log(newObject)
