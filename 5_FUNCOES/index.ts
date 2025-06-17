@@ -82,3 +82,20 @@ function somaDefault(n: number, m = 10): number {
 console.log(somaDefault(10));
 console.log(somaDefault(505050,505051));
 
+//unknow
+function doSomething(x: unknown) {
+    if (Array.isArray(x)){
+        console.log(x[0])
+    }else if (typeof x === "number") {
+        console.log("X é um número")
+    }else if (typeof x === "string") {
+        console.log(`O SZPAK QR TE FALAR ALGO ISABELE : ${x}`)
+    }else{
+        console.log("To tentando entender o que é X")
+    }
+}
+
+
+doSomething([1,2,3,4,4,5])
+doSomething(12321)
+doSomething("EU AMO MINHA NAMORADA ELA É A MULHER DA MINHA VIDA")
