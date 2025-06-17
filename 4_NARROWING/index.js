@@ -33,3 +33,63 @@ function operations(arr, operation) {
 }
 operations([1, 2, 60], 'sum');
 operations([1, 2, 60], 'multiply');
+//instance of
+class User {
+    constructor(name) {
+        this.name = name;
+    }
+}
+class SuperUser extends User {
+    constructor(name) {
+        super(name);
+    }
+}
+const pedro = new User("Pedro");
+const Szpak = new SuperUser("SZPAK");
+console.log(pedro);
+console.log(Szpak);
+function userGreeting(user) {
+    if (user instanceof SuperUser) {
+        console.log(`Olá ${user.name}, deseja ver os dados do sistema?`);
+    }
+    else if (user instanceof User) {
+        console.log(`Olá ${user.name}`);
+    }
+}
+userGreeting(pedro);
+userGreeting(Szpak);
+//In operator 
+class R6Operator {
+    constructor(name, mainGun, mainGadget, side, type, favoriteMap) {
+        this.name = name;
+        this.mainGun = mainGun;
+        this.mainGadget = mainGadget;
+        this.side = side;
+        if (type) {
+            this.type = type;
+        }
+        if (favoriteMap) {
+            this.favoriteMap = favoriteMap;
+        }
+    }
+}
+const thermite = new R6Operator("Thermite", "556xi", "Exothermic Charge", true, "Hard Breach", "Chalet");
+const Vigil = new R6Operator("Vigil", "K1A", "ERC-7", false);
+function showOperator(operator) {
+    if (operator.type !== undefined) {
+        console.log(`O operador é da classe ${operator.type}`);
+    }
+    else {
+        console.log(`${operator.name} não possui tipo definido`);
+    }
+    if (operator.favoriteMap !== undefined) {
+        console.log(`O mapa favorito do(a) ${operator.name} é ${operator.favoriteMap}`);
+    }
+    else {
+        console.log(`${operator.name} não tem mapa favorito definido`);
+    }
+}
+showOperator(thermite);
+showOperator(Vigil);
+console.log(thermite);
+console.log(Vigil);
