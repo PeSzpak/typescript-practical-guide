@@ -88,4 +88,11 @@ doSomething("EU AMO MINHA NAMORADA ELA É A MULHER DA MINHA VIDA");
 function showErrorMessage(msg) {
     throw new Error(msg);
 }
-showErrorMessage("DEU ERROOOOOOOOOO");
+//showErrorMessage("DEU ERROOOOOOOOOO") -- se tiver descomentado não funciona os codigos a baixo 
+//Rest Parameters 
+function sumAll(...n) {
+    return n.reduce((number, sum) => sum + number);
+}
+console.log(sumAll(1, 2, 5, 3, 4, 66, 4, 4));
+console.log(sumAll(1, 2, 4, 6, 8, 564, 2, 46, 75, 863, 6364, 2, 674, 5));
+//
