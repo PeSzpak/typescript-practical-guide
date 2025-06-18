@@ -117,3 +117,18 @@ const ace = {
     skin: "Liquid 2025"
 }
 console.log(ace)
+
+//Readonly arrau
+let myArray:ReadonlyArray<string> = ["Kyan", "DJ onga", "BK", "Xamã", "MajorRD"];
+
+ //myArray[5] = "Baco"
+
+ console.log(myArray)
+
+ myArray.forEach((item) => {
+    console.log("MC: " + item)
+ })
+myArray = myArray.map((item) => {
+    return`MC: ${item} `
+ })
+console.log(myArray)
