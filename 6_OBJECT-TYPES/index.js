@@ -79,3 +79,9 @@ const myNumberArray = [4, 13, 14, 15, 9];
 console.log(myNumberArray);
 const anotherBirthday = ["Meu Aniversário", 4.01];
 console.log(anotherBirthday);
+//Tuplas ReadOnly
+function showNames(strings) {
+    console.log(strings);
+    console.log(strings);
+}
+showNames(["Hibanna", "Thermite", "Ash", "Vigil", "Ela", "Melusi"]);

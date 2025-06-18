@@ -146,3 +146,10 @@ type nameAndAge = [string, number]
 
 const anotherBirthday: nameAndAge =["Meu Aniversário", 4.01]
 console.log(anotherBirthday)
+
+//Tuplas ReadOnly
+function showNames(strings: readonly  [string, string, string , string, string, string]) {
+    console.log(strings)
+    console.log(strings)
+} 
+showNames(["Hibanna","Thermite","Ash","Vigil","Ela","Melusi"])
