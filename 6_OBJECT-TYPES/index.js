@@ -40,4 +40,8 @@ const fusca = {
     wheels: 4
 };
 console.log(fusca);
-//
+let coords = {
+    X: 10
+};
+coords.y = 15;
+console.log(coords);
