@@ -35,3 +35,8 @@ const usuario = {
 };
 showUserDetails(adm);
 showUserDetails(usuario);
+const fusca = {
+    brand: "Volksvagen",
+    wheels: 4
+};
+console.log(fusca);

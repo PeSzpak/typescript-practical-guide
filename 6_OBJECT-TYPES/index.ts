@@ -53,3 +53,14 @@ const usuario: User = {
 showUserDetails(adm)
 showUserDetails(usuario)
 
+//readonly 
+interface Car {
+    brand : string;
+    readonly wheels: number
+}
+const fusca: Car = {
+    brand: "Volksvagen",
+    wheels: 4
+
+}
+console.log(fusca)
