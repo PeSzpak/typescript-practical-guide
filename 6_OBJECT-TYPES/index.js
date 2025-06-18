@@ -56,3 +56,9 @@ const Szpak = {
 };
 console.log(pedro);
 console.log(Szpak);
+const ace = {
+    name: "Ace",
+    gun: "Ak-47",
+    skin: "Liquid 2025"
+};
+console.log(ace);

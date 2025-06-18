@@ -99,3 +99,21 @@ const Szpak: superHuman = {
 
 console.log(pedro)
 console.log(Szpak)
+
+//intersection types
+interface Character {
+    name: string
+}
+
+interface Gun {
+    type: string
+    skin: string
+}
+
+type HumanWithGun = Character & Gun 
+const ace = {
+    name: "Ace",
+    gun: "Ak-47",
+    skin: "Liquid 2025"
+}
+console.log(ace)
