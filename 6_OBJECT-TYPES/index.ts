@@ -27,3 +27,29 @@ const iphone16pm: Product = {
 showProducDetails(ps5)
 showProducDetails(iphone16pm)
 
+//interface w/ optional propert
+interface User {
+    email:string,
+    role?:string;
+}
+
+ function showUserDetails(user: User){
+    console.log(`O usuario tem o e-mail: ${user.email}`)
+
+    if(user.role){
+        console.log(`A função do usuario é ${user.role}`)
+    }
+
+ }
+
+
+ const adm: User = {
+    email: "felipemarques@gmail.com",
+    role: "Admin"
+}
+const usuario: User = {
+    email: "usuariocomum@gmail.com"
+}
+showUserDetails(adm)
+showUserDetails(usuario)
+
