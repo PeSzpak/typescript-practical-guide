@@ -73,3 +73,9 @@ myArray = myArray.map((item) => {
     return `MC: ${item} `;
 });
 console.log(myArray);
+const myNumberArray = [4, 13, 14, 15, 9];
+//const myMixedArray: fiveNubers = [4,true, "sdas", 123, 123,312]
+//const myNumberArray2: fiveNubers = [4,13,14,15,9, 6]
+console.log(myNumberArray);
+const anotherBirthday = ["Meu Aniversário", 4.01];
+console.log(anotherBirthday);
