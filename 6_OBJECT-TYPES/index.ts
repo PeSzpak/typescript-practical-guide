@@ -77,3 +77,25 @@ coords.y = 15
 
 console.log(coords)
 
+//Extends interfaces 
+interface Human {
+    name: string,
+    age: number
+}
+
+interface superHuman extends Human {
+    superpowers: string[];
+}
+
+const pedro: Human = {
+    name: "Pedro",
+    age: 18
+}
+const Szpak: superHuman = {
+    name: "SZPAK",
+    age: 18,
+    superpowers: ["Invisibilidade", "Parar o tempo", "Super-Força"]
+}
+
+console.log(pedro)
+console.log(Szpak)

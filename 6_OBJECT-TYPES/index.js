@@ -45,3 +45,14 @@ let coords = {
 };
 coords.y = 15;
 console.log(coords);
+const pedro = {
+    name: "Pedro",
+    age: 18
+};
+const Szpak = {
+    name: "SZPAK",
+    age: 18,
+    superpowers: ["Invisibilidade", "Parar o tempo", "Super-Força"]
+};
+console.log(pedro);
+console.log(Szpak);
