@@ -10,20 +10,20 @@ console.log(names);
 //outra sintaxe de array 
 let names2: Array<string> = ["Isabelle", "Santos", "da", "Cruz"];
 names2.push("Szpak");
-console.log(names2);    
+console.log(names2);
 
 //any
-const arr1: any = [1, "Isabelle", true, [], {nome: "Szpak"}];
+const arr1: any = [1, "Isabelle", true, [], { nome: "Szpak" }];
 console.log(arr1)
 
 arr1.push(['eu', 'amo', 'minha', 'namorada'])
 console.log(arr1);
 
 //parametros tipados 
-function soma(a:number, b:number) {
+function soma(a: number, b: number) {
     console.log(a + b);
 }
-soma(10,5);
+soma(10, 5);
 
 //retorno tipado
 function greeting(nome: string): string {
@@ -32,7 +32,7 @@ function greeting(nome: string): string {
 console.log(greeting("Ana"));
 
 //função anonima
-setTimeout(function() {
+setTimeout(function () {
 
     const sallary: number = 1000;
     const bonus: number = 200;
@@ -41,11 +41,11 @@ setTimeout(function() {
 }, 2000)
 
 // tipos de objetos
-function passCoordinates(coord: {x: number, y: number}) {
+function passCoordinates(coord: { x: number, y: number }) {
     console.log("X coordinate: " + coord.x);
     console.log("Y coordinate: " + coord.y);
 }
-const objCoord = {x: 329, y: 84};
+const objCoord = { x: 329, y: 84 };
 passCoordinates(objCoord)
 
 //propriedades opcionais
@@ -58,7 +58,7 @@ function showNumbers(a: number, b?: number, c?: number) {
         console.log("C: " + c);
     }
 }
-showNumbers(1,undefined, 3);
+showNumbers(1, undefined, 3);
 showNumbers(1, 2, 3);
 showNumbers(4);
 
@@ -69,7 +69,7 @@ function showNumbers2(P: number, S?: number, G?: number) {
     } else if (S === undefined) {
         console.log("P: " + P);
         console.log("S: " + S);
-    }  else {
+    } else {
         console.log("P: " + P);
         console.log("S: " + S);
         console.log("G: " + G);
@@ -80,7 +80,7 @@ showNumbers2(1, 2, 3);
 showNumbers2(4);
 
 //unioon types
-function showBalance(balance: string| number) {
+function showBalance(balance: string | number) {
     console.log(`O saldo da conta é R$ ${balance}`)
 }
 showBalance(100);
@@ -120,7 +120,7 @@ function showCoordinates(coord: Point) {
     console.log(`Y: ${coord.y}`);
     console.log(`Z: ${coord.z}`);
 }
-const coordObj: Point = {x: 10, y: 20, z: 30};
+const coordObj: Point = { x: 10, y: 20, z: 30 };
 showCoordinates(coordObj);
 
 // interface x type alias
@@ -136,7 +136,7 @@ const somePerson: Person = {
 };
 
 //literal types
-let test: "testando" 
+let test: "testando"
 test = "testando";
 console.log(test);
 
@@ -154,7 +154,7 @@ console.log(p.innerText);
 
 //bigint
 let n: bigint;
-n = 1000n 
+n = 1000n
 console.log(n);
 n = BigInt(9007199254740991);
 console.log(n);

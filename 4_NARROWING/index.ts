@@ -1,30 +1,30 @@
 //type guard
-function Sum(a: string | number, b: string | number){
+function Sum(a: string | number, b: string | number) {
     if (typeof a === "string" && typeof b === "string") {
         console.log(parseFloat(a) + parseFloat(b));
-}   else if (typeof a === "number" && typeof b === "number") {
-    console.log(a + b);
-}
+    } else if (typeof a === "number" && typeof b === "number") {
+        console.log(a + b);
+    }
     else {
-    console.log("Invalid arguments: both arguments must be either numbers or strings that can be converted to numbers.");
+        console.log("Invalid arguments: both arguments must be either numbers or strings that can be converted to numbers.");
     }
 }
-Sum(1, 2); 
-Sum("55" , "55" );
+Sum(1, 2);
+Sum("55", "55");
 console.log(Sum(1, 2));
 console.log(Sum("1", 2));
 
 //checking the type 
 function operations(arr: number[], operation: string | undefined) {
-    if(operation){
-        if(operation === "sum"){
+    if (operation) {
+        if (operation === "sum") {
             const sum = arr.reduce((i, total) => i + total)
             console.log(sum)
-        }else if (operation === "multiply"){
+        } else if (operation === "multiply") {
             const multiply = arr.reduce((i, total) => i * total)
             console.log(multiply)
         }
-    }else {
+    } else {
         console.log("Por favor, defina uma operação");
     }
 }
