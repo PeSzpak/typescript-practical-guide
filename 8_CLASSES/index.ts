@@ -45,4 +45,37 @@ console.log(taos)
 // taos.wheels = 10
 // console.log(taos)
 
-//
+//extends and super 
+class Serie {
+    name
+
+    constructor(name: string){
+    this.name = name
+}
+}
+
+const st = new Serie("Stranger Things")
+
+class Infos extends Serie {
+    seasons
+    bestCharacter
+    mainCharacters
+    kind
+
+    constructor(name:string, seasons: number, bestCharacter:string, mainCharacter:string, kind: String ) {
+        super(name)
+        this.seasons = seasons,
+        this.bestCharacter = bestCharacter,
+        this.mainCharacters = mainCharacter,
+        this.kind = kind
+    }
+}
+
+const RM = new Infos(
+    "Rick and Morty", 
+    7,
+    "Mr.PoopPants",
+    "Rick an Morty",
+    "Adult Swin"
+)
+console.log(RM)

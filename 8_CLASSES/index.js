@@ -29,4 +29,21 @@ taos.name = "Taos do meu sogro que é muito foda";
 console.log(taos);
 // taos.wheels = 10
 // console.log(taos)
-//
+//extends and super 
+class Serie {
+    constructor(name) {
+        this.name = name;
+    }
+}
+const st = new Serie("Stranger Things");
+class Infos extends Serie {
+    constructor(name, seasons, bestCharacter, mainCharacter, kind) {
+        super(name);
+        this.seasons = seasons,
+            this.bestCharacter = bestCharacter,
+            this.mainCharacters = mainCharacter,
+            this.kind = kind;
+    }
+}
+const RM = new Infos("Rick and Morty", 7, "Mr.PoopPants", "Rick an Morty", "Adult Swin");
+console.log(RM);
