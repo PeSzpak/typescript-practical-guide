@@ -191,3 +191,12 @@ pObj.showPrivateMethod();
 //         this.privateMethod()
 //     }
 // }
+//Static Members 
+class StaticMembers {
+    static staticMethod() {
+        console.log("Este é um metodo estatico");
+    }
+}
+StaticMembers.prop = "Teste Gratis";
+console.log(StaticMembers.prop);
+StaticMembers.staticMethod();
