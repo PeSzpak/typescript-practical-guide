@@ -73,3 +73,16 @@ class LuxuryCar {
 const A5 = new LuxuryCar("A5", "Audi", 180000);
 console.log(A5);
 A5.sayCarInfo();
+//getters 
+class Person {
+    constructor(name, surname) {
+        this.name = name;
+        this.surname = surname;
+    }
+    get fullname() {
+        return this.name + " " + this.surname;
+    }
+}
+const PS = new Person("Pedro", "Szpak");
+console.log(PS.name);
+console.log(PS.fullname);
