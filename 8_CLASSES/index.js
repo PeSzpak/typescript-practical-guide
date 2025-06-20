@@ -59,3 +59,17 @@ class Barbarian {
 const Marquito = new Barbarian("Marquito o Grandinho");
 console.log(Marquito.name);
 Marquito.greeting();
+//This 
+class LuxuryCar {
+    constructor(name, brand, price) {
+        this.name = name;
+        this.brand = brand;
+        this.price = price;
+    }
+    sayCarInfo() {
+        console.log(`O seu carro de Luxo é um ${this.name}, da marca ${this.brand} e atualmente custa a bagatela de R$${this.price}`);
+    }
+}
+const A5 = new LuxuryCar("A5", "Audi", 180000);
+console.log(A5);
+A5.sayCarInfo();
