@@ -12,4 +12,18 @@
 
   console.log (Pak)
 
+  // Constructor
+  class NewUser {
+    name
+    age 
+
+    constructor(name: string, age:number){
+    this.name = name
+    this.age = age
+} 
+  }
+
+  const Pedro = new NewUser("Pedro Szpak", 18)
+  console.log(Pedro)
+
   
