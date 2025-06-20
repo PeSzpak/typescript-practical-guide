@@ -26,4 +26,23 @@
   const Pedro = new NewUser("Pedro Szpak", 18)
   console.log(Pedro)
 
-  
+//Readonly 
+class Car {
+    name
+    readonly wheels = 4 
+    constructor(name: string) {
+        this.name = name
+    }
+}
+const taos = new Car("Taos")
+console.log(taos)
+
+console.log(taos.wheels)
+
+taos.name = "Taos do meu sogro que é muito foda"
+console.log(taos)
+
+// taos.wheels = 10
+// console.log(taos)
+
+//

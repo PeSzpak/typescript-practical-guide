@@ -15,3 +15,18 @@ class NewUser {
 }
 const Pedro = new NewUser("Pedro Szpak", 18);
 console.log(Pedro);
+//Readonly 
+class Car {
+    constructor(name) {
+        this.wheels = 4;
+        this.name = name;
+    }
+}
+const taos = new Car("Taos");
+console.log(taos);
+console.log(taos.wheels);
+taos.name = "Taos do meu sogro que é muito foda";
+console.log(taos);
+// taos.wheels = 10
+// console.log(taos)
+//
