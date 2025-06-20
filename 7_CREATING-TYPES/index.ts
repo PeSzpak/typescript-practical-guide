@@ -58,3 +58,12 @@ const myChar: Character = {
 }
 
 console.log(showCharName(myChar, 'name'))
+
+//typeof type operator 
+const userName: string = "Pedro"
+const userName2: typeof userName = "Szpak"
+const userName3: typeof userName = "Ayrton Senna"
+const qlqrcoisa: typeof userName = "MEuDeus FUnciona"
+
+//
+
