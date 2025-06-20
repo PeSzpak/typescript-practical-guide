@@ -200,3 +200,20 @@ class StaticMembers {
 StaticMembers.prop = "Teste Gratis";
 console.log(StaticMembers.prop);
 StaticMembers.staticMethod();
+//Generic Class 
+class Item {
+    constructor(first, second) {
+        this.first = first;
+        this.second = second;
+    }
+    get showFirst() {
+        return `O first é ${this.first}`;
+    }
+}
+const newItem = new Item("Caixa de", "Surpresa");
+const newItem2 = new Item(true, 12);
+const newItem3 = new Item(false, "AHAHAHAH");
+console.log(newItem);
+console.log(newItem2);
+console.log(newItem3);
+console.log(typeof newItem2.first);
