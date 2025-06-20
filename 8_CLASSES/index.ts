@@ -360,3 +360,14 @@ class AbstractExample extends AbstractClass {
 const newAbstractObject = new AbstractExample("Maciel")
 newAbstractObject.showName()
 
+//Class relationship 
+class Dog {
+    name!: string
+}
+
+class Cat {
+    name!: string
+}
+
+const salsicha: Dog = new Cat()
+console.log(salsicha)
