@@ -93,4 +93,16 @@ const someVar:myType = 5
 
 type myTypeB = Teste extends {showNumber(): number} ? string : boolean
 
+//template literals type 
+type TesteA = "text"
+type CustomType = `Some ${TesteA}`
+
+const testing: CustomType = "some text"
+
+type a1 = "Testando"
+type a2 = "Union"
+
+type a3 = `${a1}` | `${a2}`
+
+
 
