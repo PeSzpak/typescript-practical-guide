@@ -313,7 +313,7 @@ class ParametersProperties {
         this.price = price
         }
 
-        
+
     get showQty() {
         return `Qtd total: ${this.qty}`
     }
@@ -328,4 +328,15 @@ console.log(newShirt.showQty)
 // console.log(newShirt.price)
 // console.log(newShirt.qty)
 
+//class expressions 
+const myClass = class<T>{
+    name 
+
+    constructor(name: T){
+    this.name = name
+    }
+}
+const Pessoa = new myClass("Pedrin Bala Torta")
+console.log(Pessoa)
+console.log(Pessoa.name)
 
