@@ -65,5 +65,18 @@ const userName2: typeof userName = "Szpak"
 const userName3: typeof userName = "Ayrton Senna"
 const qlqrcoisa: typeof userName = "MEuDeus FUnciona"
 
-//
+//Indexed Access  type
+type Truck = {km: number, kg: number, description:string}
 
+type Km = Truck['km']
+
+const newTruck: Truck = {
+    km: 10000,
+    kg: 5000, 
+    description: "Caminhão para pouca carga"
+}
+
+function showKm(km: Km ) {
+    console.log(`O veiculo possui ${km} kilometros`)
+}
+showKm(newTruck.km)

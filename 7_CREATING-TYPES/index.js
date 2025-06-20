@@ -39,4 +39,12 @@ const userName = "Pedro";
 const userName2 = "Szpak";
 const userName3 = "Ayrton Senna";
 const qlqrcoisa = "MEuDeus FUnciona";
-//
+const newTruck = {
+    km: 10000,
+    kg: 5000,
+    description: "Caminhão para pouca carga"
+};
+function showKm(km) {
+    console.log(`O veiculo possui ${km} kilometros`);
+}
+showKm(newTruck.km);
