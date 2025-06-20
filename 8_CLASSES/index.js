@@ -249,3 +249,17 @@ const myClass = class {
 const Pessoa = new myClass("Pedrin Bala Torta");
 console.log(Pessoa);
 console.log(Pessoa.name);
+//Abstract Class
+class AbstractClass {
+}
+class AbstractExample extends AbstractClass {
+    constructor(name) {
+        super();
+        this.name = name;
+    }
+    showName() {
+        console.log(`O nome é ${this.name}`);
+    }
+}
+const newAbstractObject = new AbstractExample("Maciel");
+newAbstractObject.showName();

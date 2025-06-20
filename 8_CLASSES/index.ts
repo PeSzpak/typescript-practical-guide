@@ -340,3 +340,23 @@ const Pessoa = new myClass("Pedrin Bala Torta")
 console.log(Pessoa)
 console.log(Pessoa.name)
 
+//Abstract Class
+abstract class AbstractClass {
+    abstract showName(): void
+}
+
+class AbstractExample extends AbstractClass {
+    name: string
+
+    constructor(name: string){
+    super()
+    this.name = name
+    }
+    showName() {
+        console.log(`O nome é ${this.name}`)
+    }
+}
+
+const newAbstractObject = new AbstractExample("Maciel")
+newAbstractObject.showName()
+
