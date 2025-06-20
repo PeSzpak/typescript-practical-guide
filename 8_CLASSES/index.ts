@@ -199,3 +199,74 @@ someMethod(): void {
 }
 const myObject  = new Nova ()
 myObject.someMethod()
+
+
+//===========================================VISIBILIDADE===========================================\\
+//Public 
+class C {
+    public x = 2024 
+}
+
+class D extends C {
+
+}
+
+const cInstance = new C()
+console.log(cInstance.x)
+
+const dInstance = new D()
+console.log(dInstance.x)
+
+//Protected
+class E {
+    protected x = 15.08
+    protected protectedMethod(){
+        console.log("Este é um metodo protegido")
+    }
+    
+}
+class F extends E {
+    showX() {
+        console.log("X: " + this.x)
+    }
+    showProtectedMethod(){
+        this.protectedMethod()
+    }
+}
+const fInstance = new F()
+fInstance.showX()
+fInstance.showProtectedMethod()
+
+//Private 
+class PrivateClass {
+    private name = "Private"
+
+    showName(){
+        return this.name
+    }
+
+    private privateMethod() {
+        console.log("Método privaod")
+    }
+    showPrivateMethod(){
+        this.privateMethod
+    }
+}
+
+const pObj = new PrivateClass()
+//console.log(pObj.name)
+console.log(pObj.showName())
+//console.log(pObj.privateMethod())
+pObj.showPrivateMethod()
+
+// class TestingPrivate extends PrivateClass {
+//     myMethod() {
+//         this.privateMethod()
+//     }
+// }
+
+
+
+
+
+
