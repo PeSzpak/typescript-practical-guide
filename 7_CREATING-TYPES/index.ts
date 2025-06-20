@@ -80,3 +80,17 @@ function showKm(km: Km ) {
     console.log(`O veiculo possui ${km} kilometros`)
 }
 showKm(newTruck.km)
+
+//conditional types 
+interface A {}
+interface B extends A {}
+interface Teste {
+    showName(): string
+}
+
+type myType = B extends A ? number : string
+const someVar:myType = 5
+
+type myTypeB = Teste extends {showNumber(): number} ? string : boolean
+
+
