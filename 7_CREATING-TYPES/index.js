@@ -12,3 +12,7 @@ function showProductName(obj) {
 }
 const myObj = { name: "Ratinho", Is: "Apresentados ou Animal?" };
 console.log(showProductName(myObj));
+const myCar = { name: "URUS", brand: "Lanborghini", transmission: "Manual", color: "Midnight Blue " };
+const myPen = { name: "Caneta Bic multicolor", brand: false, transmission: false, color: "multicolor" };
+console.log(myCar);
+console.log(myPen);

@@ -15,3 +15,20 @@ function showProductName<T extends {name: string}>(obj: T) {
 const myObj = {name: "Ratinho", Is:"Apresentados ou Animal?"}
 
 console.log(showProductName(myObj))
+
+//interface X generics 
+interface myObject<T, U, P> {
+    name: string
+    brand: T
+    transmission: U
+    color: P
+}
+
+type Car = myObject<string, string, string> 
+type Pen = myObject<boolean, boolean, string> 
+
+const myCar:Car = {name: "URUS", brand:"Lanborghini", transmission:"Manual", color: "Midnight Blue " }
+const myPen:Pen = {name: "Caneta Bic multicolor", brand: false, transmission:false, color:"multicolor"}
+
+console.log(myCar)
+console.log(myPen)
