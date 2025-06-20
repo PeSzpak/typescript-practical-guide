@@ -79,3 +79,20 @@ const RM = new Infos(
     "Adult Swin"
 )
 console.log(RM)
+
+//methods 
+class Barbarian {
+    name
+
+    constructor(name:string){
+        this.name = name
+    }
+
+    greeting(){
+        console.log("Hey Stranger!")
+    }
+}
+
+const Marquito = new Barbarian ("Marquito o Grandinho")
+console.log(Marquito.name)
+Marquito.greeting()

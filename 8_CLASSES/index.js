@@ -47,3 +47,15 @@ class Infos extends Serie {
 }
 const RM = new Infos("Rick and Morty", 7, "Mr.PoopPants", "Rick an Morty", "Adult Swin");
 console.log(RM);
+//methods 
+class Barbarian {
+    constructor(name) {
+        this.name = name;
+    }
+    greeting() {
+        console.log("Hey Stranger!");
+    }
+}
+const Marquito = new Barbarian("Marquito o Grandinho");
+console.log(Marquito.name);
+Marquito.greeting();
