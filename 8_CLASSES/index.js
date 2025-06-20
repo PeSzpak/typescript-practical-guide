@@ -110,3 +110,13 @@ myCoords.fillx = 3;
 myCoords.filly = 0; // n retorna nada devido a minha validação 
 myCoords.filly = 6;
 console.log(myCoords);
+class blogPost {
+    constructor(title) {
+        this.title = title;
+    }
+    itemTitle() {
+        return `O titulo do Post é: ${this.title} `;
+    }
+}
+const myPost = new blogPost("O uso de Cigarro eletronico aumenta e muito no Brasil");
+console.log(myPost.itemTitle());
