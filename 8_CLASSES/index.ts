@@ -136,3 +136,34 @@ const PS = new Person("Pedro", "Szpak")
 
 console.log(PS.name)
 console.log(PS.fullname)
+
+class Coords {
+    x!: number
+    y!: number
+
+    set fillx(x: number) {
+        if(x === 0 ){
+            return
+        }
+        this.x = x 
+        console.log("X inserido com sucesso")
+    }
+    set filly(y: number) {
+        if(y === 0 ){
+            return
+        }
+        this.y = y 
+        console.log("Y inserido com sucesso")
+    }
+
+    get getCoords() {
+        return `X: ${this.x} Y: ${this.y}`
+    }
+}
+
+const myCoords = new Coords()
+myCoords.fillx = 3
+myCoords.filly = 0 // n retorna nada devido a minha validação 
+myCoords.filly = 6
+
+console.log(myCoords)
