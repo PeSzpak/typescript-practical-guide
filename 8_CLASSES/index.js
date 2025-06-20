@@ -217,3 +217,26 @@ console.log(newItem);
 console.log(newItem2);
 console.log(newItem3);
 console.log(typeof newItem2.first);
+//Parameters Properties 
+class ParametersProperties {
+    constructor(name, qty, price) {
+        this.name = name;
+        this.qty = qty;
+        this.price = price;
+        this.name = name;
+        this.qty = qty;
+        this.price = price;
+    }
+    get showQty() {
+        return `Qtd total: ${this.qty}`;
+    }
+    get showprice() {
+        return `O preço total: ${this.price}`;
+    }
+}
+const newShirt = new ParametersProperties("MM camiseta", 15, 599.99);
+console.log(newShirt.name);
+console.log(newShirt.showprice);
+console.log(newShirt.showQty);
+// console.log(newShirt.price)
+// console.log(newShirt.qty)
