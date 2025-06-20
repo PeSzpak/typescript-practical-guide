@@ -16,3 +16,12 @@ const myCar = { name: "URUS", brand: "Lanborghini", transmission: "Manual", colo
 const myPen = { name: "Caneta Bic multicolor", brand: false, transmission: false, color: "multicolor" };
 console.log(myCar);
 console.log(myPen);
+//type parameters 
+function getSomeKey(obj, key) {
+    return `A chave ${key} está presente no objeto e tem valor de ${obj[key]}`;
+}
+const server = {
+    hd: '2TB',
+    ram: '32GB'
+};
+console.log(getSomeKey(server, 'ram'));

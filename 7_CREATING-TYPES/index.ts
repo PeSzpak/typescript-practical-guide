@@ -32,3 +32,16 @@ const myPen:Pen = {name: "Caneta Bic multicolor", brand: false, transmission:fal
 
 console.log(myCar)
 console.log(myPen)
+
+//type parameters 
+function getSomeKey<T, K extends keyof T> (obj: T, key: K) {
+    return `A chave ${key} está presente no objeto e tem valor de ${obj[key]}`
+}
+const server = {
+    hd:'2TB',
+    ram:'32GB'
+}
+console.log(getSomeKey(server, 'ram'))
+
+
+
