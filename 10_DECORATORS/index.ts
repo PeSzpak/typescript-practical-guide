@@ -95,3 +95,26 @@ class R6Map {
 const Litoral = new R6Map("Litoral")
 console.log(Litoral.showName())
 
+//Acessor Decorator 
+class Player {
+       name?
+       main?
+       age?
+       constructor(name?: string, main?: string, age?: number) {
+        this.name = name
+        this.main = main
+        this.age = age
+    }
+    @playable(true)
+    get showName() {
+        return `Nome do ProPlayer é: ${this.name}`
+    }
+    @playable(false)
+    get showMain() {
+        return `O ${this.name} joga de ${this.main} como main Operator`
+    }
+}
+
+const nesk = new Player ("Nesk", "Dokkaebi" , 33)
+console.log(nesk.showName)
+console.log(nesk.showMain)

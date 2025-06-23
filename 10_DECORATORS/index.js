@@ -83,3 +83,26 @@ __decorate([
 ], R6Map.prototype, "showName", null);
 const Litoral = new R6Map("Litoral");
 console.log(Litoral.showName());
+//Acessor Decorator 
+class Player {
+    constructor(name, main, age) {
+        this.name = name;
+        this.main = main;
+        this.age = age;
+    }
+    get showName() {
+        return `Nome do ProPlayer é: ${this.name}`;
+    }
+    get showMain() {
+        return `O ${this.name} joga de ${this.main} como main Operator`;
+    }
+}
+__decorate([
+    playable(true)
+], Player.prototype, "showName", null);
+__decorate([
+    playable(false)
+], Player.prototype, "showMain", null);
+const nesk = new Player("Nesk", "Dokkaebi", 33);
+console.log(nesk.showName);
+console.log(nesk.showMain);
