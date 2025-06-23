@@ -189,3 +189,38 @@ __decorate([
 ], Post.prototype, "post", null);
 const newPost = new Post();
 newPost.post("Meu primeiro post!", newPost.alreadyposted);
+newPost.post("Meu segundo post!", newPost.alreadyposted);
+newPost.post("Meu terceiro post!", newPost.alreadyposted);
+//Property decorator real example 
+function Max(limit) {
+    return function (target, propertyKey) {
+        let value;
+        const getter = function () {
+            return value;
+        };
+        const setter = function (newVal) {
+            if (newVal.length > limit) {
+                console.log(`O valor deve ter no maximo ${limit} digitos.`);
+                return;
+            }
+            else {
+                value = newVal;
+            }
+        };
+        Object.defineProperty(target, propertyKey, {
+            get: getter,
+            set: setter
+        });
+    };
+}
+class Admin {
+    constructor(username) {
+        this.username = username;
+    }
+}
+__decorate([
+    Max(10)
+], Admin.prototype, "username", void 0);
+let pedro = new Admin("PedroAdm");
+let Anna = new Admin("anna");
+console.log(Anna);
