@@ -1,16 +1,17 @@
 import React from 'react';
+import FirstComponent from './components/firtsComponent';
 
 function App() {
 
 
-//variaveis
-const name : string = "Szpak"
-const age : number = 18
-const isStuding: boolean = true
+  //variaveis
+  const name: string = "Szpak"
+  const age: number = 18
+  const isStuding: boolean = true
 
-const userGreeting = (name: string): string => {
-  return `Olá, ${name} `
-}
+  const userGreeting = (name: string): string => {
+    return `Olá, ${name} `
+  }
 
 
   return (
@@ -24,6 +25,7 @@ const userGreeting = (name: string): string => {
         </div>
       )}
       <h3>{userGreeting(name)}</h3>
+      <FirstComponent/>
     </div>
   );
 }
