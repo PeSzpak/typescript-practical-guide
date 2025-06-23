@@ -54,3 +54,11 @@ console.log(myNumbers);
 const nx = myNumbers.n1;
 console.log(nx);
 myNumbers.showNumbers();
+class User {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+}
+const Pedro = new User("Pedro Szpak", 18);
+console.log(Pedro);

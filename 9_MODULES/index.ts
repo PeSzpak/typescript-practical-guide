@@ -23,3 +23,19 @@ const nx = myNumbers.n1
 console.log(nx)
 
 myNumbers.showNumbers()
+
+//import type 
+import { Human } from "./myType";
+class User implements Human {
+    name
+    age
+
+    constructor(name: string, age: number) {
+        this.name = name
+        this.age = age 
+
+    }
+}
+
+const Pedro = new User ("Pedro Szpak", 18)
+console.log(Pedro)
