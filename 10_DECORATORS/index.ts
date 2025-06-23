@@ -118,3 +118,35 @@ class Player {
 const nesk = new Player ("Nesk", "Dokkaebi" , 33)
 console.log(nesk.showName)
 console.log(nesk.showMain)
+
+//Property Class
+function formatNumber(){
+    return function(
+        target: any, 
+        propertKey: string
+    ){
+        let value: string;
+
+        const getter = function() {
+            return value;
+        }
+        const setter = function (newVal: string) {
+            value = newVal.padStart(5, "0");
+        }
+        Object.defineProperty(target, propertKey, {
+            set: setter, 
+            get: getter
+        });
+    }
+}
+class ID {
+    @formatNumber()
+    id
+
+    constructor(id:string) {
+        this.id = id
+    }
+}
+const newItem = new ID ("1")
+console.log(newItem)
+console.log(newItem.id)

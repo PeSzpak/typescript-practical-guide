@@ -106,3 +106,30 @@ __decorate([
 const nesk = new Player("Nesk", "Dokkaebi", 33);
 console.log(nesk.showName);
 console.log(nesk.showMain);
+//Property Class
+function formatNumber() {
+    return function (target, propertKey) {
+        let value;
+        const getter = function () {
+            return value;
+        };
+        const setter = function (newVal) {
+            value = newVal.padStart(5, "0");
+        };
+        Object.defineProperty(target, propertKey, {
+            set: setter,
+            get: getter
+        });
+    };
+}
+class ID {
+    constructor(id) {
+        this.id = id;
+    }
+}
+__decorate([
+    formatNumber()
+], ID.prototype, "id", void 0);
+const newItem = new ID("1");
+console.log(newItem);
+console.log(newItem.id);
