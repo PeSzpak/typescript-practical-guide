@@ -14,3 +14,12 @@ myFunction()
 //alias
 import {someName as name} from "./changename"
 console.log(name)
+
+//import all *
+import * as myNumbers from './numbers'
+console.log(myNumbers)
+
+const nx = myNumbers.n1
+console.log(nx)
+
+myNumbers.showNumbers()
