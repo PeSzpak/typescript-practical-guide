@@ -8,6 +8,11 @@ const name : string = "Szpak"
 const age : number = 18
 const isStuding: boolean = true
 
+const userGreeting = (name: string): string => {
+  return `Olá, ${name} `
+}
+
+
   return (
     <div className="App">
       <h1>TypeScript com React</h1>
@@ -18,6 +23,7 @@ const isStuding: boolean = true
           <p>Está Estudando!</p>
         </div>
       )}
+      <h3>{userGreeting(name)}</h3>
     </div>
   );
 }
