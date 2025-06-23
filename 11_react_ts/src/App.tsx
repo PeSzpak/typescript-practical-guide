@@ -1,6 +1,7 @@
 import React from 'react';
 import FirstComponent from './components/firtsComponent';
-
+import SecondyComponent from './components/secondyComponent';
+import Destructuring from './components/Destructuring';
 function App() {
 
 
@@ -26,6 +27,13 @@ function App() {
       )}
       <h3>{userGreeting(name)}</h3>
       <FirstComponent/>
+      <SecondyComponent name="Segundo"/>
+      <Destructuring 
+      title="primeiro post"
+      content="Algum conteudo"
+      commentsQty={153}
+      tags={['ts', 'js', 't', 'react', ]}
+      />
     </div>
   );
 }
