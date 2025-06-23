@@ -1,4 +1,4 @@
-//decorator example 
+//example decorator  
 function myDecorator() {
     console.log("iniciando decorator!")
 
@@ -69,3 +69,29 @@ class User {
 }
 
 const Pedro = new User ("Pedrinho")
+
+//Method Decorator 
+function playable(value: boolean) {
+    return function(
+        target: any, 
+        propertKey: string,
+        descriptor: PropertyDescriptor
+    ){
+        descriptor.enumerable = value
+    }
+}
+class R6Map {
+    name
+    constructor(name: string){
+        this.name = name
+    }
+    @playable(false)
+    showName() {
+        console.log(this)
+        return `O nome do mapa é: ${this.name}`
+    }
+}
+
+const Litoral = new R6Map("Litoral")
+console.log(Litoral.showName())
+

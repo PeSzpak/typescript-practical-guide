@@ -5,7 +5,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-//decorator example 
+//example decorator  
 function myDecorator() {
     console.log("iniciando decorator!");
     return function (target, propertKey, descriptor) {
@@ -63,3 +63,23 @@ User = __decorate([
     classDec
 ], User);
 const Pedro = new User("Pedrinho");
+//Method Decorator 
+function playable(value) {
+    return function (target, propertKey, descriptor) {
+        descriptor.enumerable = value;
+    };
+}
+class R6Map {
+    constructor(name) {
+        this.name = name;
+    }
+    showName() {
+        console.log(this);
+        return `O nome do mapa é: ${this.name}`;
+    }
+}
+__decorate([
+    playable(false)
+], R6Map.prototype, "showName", null);
+const Litoral = new R6Map("Litoral");
+console.log(Litoral.showName());
