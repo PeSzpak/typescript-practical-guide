@@ -158,3 +158,34 @@ const pen = new Pen(55);
 console.log(newBook);
 console.log(newBook.createdAt);
 console.log(pen);
+//method decorator Real example 
+function checkIfUserPosted() {
+    return function (target, key, descriptor) {
+        const childFunction = descriptor.value;
+        console.log(childFunction);
+        descriptor.value = function (...args) {
+            if (args[1] === true) {
+                console.log("Usuario ja Postou!");
+                return null;
+            }
+            else {
+                return childFunction.apply(this, args);
+            }
+            return descriptor;
+        };
+    };
+}
+class Post {
+    constructor() {
+        this.alreadyposted = false;
+    }
+    post(content, alreadyposted) {
+        this.alreadyposted = true;
+        console.log(`Post do usuário: ${content}`);
+    }
+}
+__decorate([
+    checkIfUserPosted()
+], Post.prototype, "post", null);
+const newPost = new Post();
+newPost.post("Meu primeiro post!", newPost.alreadyposted);

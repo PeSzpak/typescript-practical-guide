@@ -2,7 +2,7 @@
 function myDecorator() {
     console.log("iniciando decorator!")
 
-    return function (target: any, propertKey: string,descriptor: PropertyDescriptor ) {
+    return function (target: any, propertKey: string, descriptor: PropertyDescriptor) {
         console.log("Executando decorator")
         console.log(target)
         console.log(propertKey)
@@ -22,26 +22,26 @@ myObj.testing()
 
 //multiple decorators 
 function a() {
-    return function(
-        target: any, 
+    return function (
+        target: any,
         propertKey: string,
         descriptor: PropertyDescriptor
     ) {
-        
+
         console.log("executou a.")
     }
 }
 function b() {
-    return function(
-        target: any, 
+    return function (
+        target: any,
         propertKey: string,
         descriptor: PropertyDescriptor
     ) {
-        
+
         console.log("executou b.")
     }
 }
-class  MultipleDecorators {
+class MultipleDecorators {
     @a()
     @b()
     testing() {
@@ -55,7 +55,7 @@ multiple.testing
 //class Decorator
 function classDec(constructor: Function) {
     console.log(constructor.name)
-    if (constructor.name === "User"){
+    if (constructor.name === "User") {
         console.log("Criando Usuario")
     }
 }
@@ -68,21 +68,21 @@ class User {
     }
 }
 
-const Pedro = new User ("Pedrinho")
+const Pedro = new User("Pedrinho")
 
 //Method Decorator 
 function playable(value: boolean) {
-    return function(
-        target: any, 
+    return function (
+        target: any,
         propertKey: string,
         descriptor: PropertyDescriptor
-    ){
+    ) {
         descriptor.enumerable = value
     }
 }
 class R6Map {
     name
-    constructor(name: string){
+    constructor(name: string) {
         this.name = name
     }
     @playable(false)
@@ -97,10 +97,10 @@ console.log(Litoral.showName())
 
 //Acessor Decorator 
 class Player {
-       name?
-       main?
-       age?
-       constructor(name?: string, main?: string, age?: number) {
+    name?
+    main?
+    age?
+    constructor(name?: string, main?: string, age?: number) {
         this.name = name
         this.main = main
         this.age = age
@@ -115,26 +115,26 @@ class Player {
     }
 }
 
-const nesk = new Player ("Nesk", "Dokkaebi" , 33)
+const nesk = new Player("Nesk", "Dokkaebi", 33)
 console.log(nesk.showName)
 console.log(nesk.showMain)
 
 //Property Class
-function formatNumber(){
-    return function(
-        target: any, 
+function formatNumber() {
+    return function (
+        target: any,
         propertKey: string
-    ){
+    ) {
         let value: string;
 
-        const getter = function() {
+        const getter = function () {
             return value;
         }
         const setter = function (newVal: string) {
             value = newVal.padStart(5, "0");
         }
         Object.defineProperty(target, propertKey, {
-            set: setter, 
+            set: setter,
             get: getter
         });
     }
@@ -143,24 +143,24 @@ class ID {
     @formatNumber()
     id
 
-    constructor(id:string) {
+    constructor(id: string) {
         this.id = id
     }
 }
-const newItem = new ID ("1")
+const newItem = new ID("1")
 console.log(newItem)
 console.log(newItem.id)
 
 //Class Decorator Real Example 
 function createDate(created: Function) {
-    created .prototype.createdAt = new Date()
+    created.prototype.createdAt = new Date()
 }
 
 @createDate
 class Book {
     id
     createdAt?: Date
-    constructor(id:number) {
+    constructor(id: number) {
         this.id = id
     }
 }
@@ -174,9 +174,44 @@ class Pen {
     }
 }
 
-const newBook = new Book (12)
+const newBook = new Book(12)
 const pen = new Pen(55)
 
 console.log(newBook)
 console.log(newBook.createdAt)
 console.log(pen)
+
+//method decorator Real example 
+function checkIfUserPosted() {
+
+    return function (
+        target: Object,
+        key: string | Symbol,
+        descriptor: PropertyDescriptor
+    ) {
+        const childFunction = descriptor.value
+        console.log(childFunction)
+        descriptor.value = function (...args: any[]) {
+            if (args[1] === true) {
+                console.log("Usuario ja Postou!")
+                return null
+            } else {
+                return childFunction.apply(this, args)
+            }
+            return descriptor
+        }
+    }
+}
+
+class Post {
+    alreadyposted = false
+
+    @checkIfUserPosted()
+    post(content: string, alreadyposted: boolean) {
+        this.alreadyposted = true
+        console.log(`Post do usuário: ${content}`)
+    }
+}
+
+const newPost = new Post()
+newPost.post("Meu primeiro post!", newPost.alreadyposted)
