@@ -2,6 +2,7 @@ import React from 'react';
 import FirstComponent from './components/firtsComponent';
 import SecondyComponent from './components/secondyComponent';
 import Destructuring from './components/Destructuring';
+import State from './components/State';
 function App() {
 
 
@@ -34,6 +35,8 @@ function App() {
       commentsQty={153}
       tags={['ts', 'js', 't', 'react', ]}
       />
+      <State/>
+
     </div>
   );
 }
