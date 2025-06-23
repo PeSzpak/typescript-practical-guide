@@ -25,3 +25,41 @@ __decorate([
 ], myClass.prototype, "testing", null);
 const myObj = new myClass();
 myObj.testing();
+//multiple decorators 
+function a() {
+    return function (target, propertKey, descriptor) {
+        console.log("executou a.");
+    };
+}
+function b() {
+    return function (target, propertKey, descriptor) {
+        console.log("executou b.");
+    };
+}
+class MultipleDecorators {
+    testing() {
+        console.log("terminando execução");
+    }
+}
+__decorate([
+    a(),
+    b()
+], MultipleDecorators.prototype, "testing", null);
+const multiple = new MultipleDecorators();
+multiple.testing;
+//class Decorator
+function classDec(constructor) {
+    console.log(constructor.name);
+    if (constructor.name === "User") {
+        console.log("Criando Usuario");
+    }
+}
+let User = class User {
+    constructor(name) {
+        this.name = name;
+    }
+};
+User = __decorate([
+    classDec
+], User);
+const Pedro = new User("Pedrinho");
