@@ -5,21 +5,30 @@ interface Props {
     content: string
     commentsQty: number
     tags: string[]
+    category: Category
 }
 
-const Destructuring = ({title, content, commentsQty, tags}: Props) => {
+export enum Category {
+    JS = "JavaScript",
+    TS = "TypeScript",
+    P = "Python"
+
+}
+const Destructuring = ({ title, content, commentsQty, tags, category }: Props) => {
     return (
         <div>
-        <h2>{}title</h2>
-        <p>content</p>
-        <p>Quantidade de Comentários: {commentsQty}</p>
+            <h2>{ }title</h2>
+            <p>content</p>
+            <p>Quantidade de Comentários: {commentsQty}</p>
             <div>
                 {tags.map(tag => (
                     <span>#{tag} </span>
                 ))}
             </div>
+            <h4>Categoria: {category}</h4>
         </div>
     )
 }
 
 export default Destructuring
+

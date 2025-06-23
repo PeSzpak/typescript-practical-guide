@@ -1,7 +1,7 @@
 import React from 'react';
 import FirstComponent from './components/firtsComponent';
 import SecondyComponent from './components/secondyComponent';
-import Destructuring from './components/Destructuring';
+import Destructuring, { Category } from './components/Destructuring';
 import State from './components/State';
 function App() {
 
@@ -33,7 +33,15 @@ function App() {
       title="primeiro post"
       content="Algum conteudo"
       commentsQty={153}
-      tags={['ts', 'js', 't', 'react', ]}
+      tags={['ts', 'js']}
+      category={Category.TS}
+      />
+      <Destructuring 
+      title="Segundo post"
+      content="Mais Algum conteudo"
+      commentsQty={444}
+      tags={['python']}
+      category={Category.P}
       />
       <State/>
 
