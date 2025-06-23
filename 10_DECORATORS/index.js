@@ -133,3 +133,28 @@ __decorate([
 const newItem = new ID("1");
 console.log(newItem);
 console.log(newItem.id);
+//Class Decorator Real Example 
+function createDate(created) {
+    created.prototype.createdAt = new Date();
+}
+let Book = class Book {
+    constructor(id) {
+        this.id = id;
+    }
+};
+Book = __decorate([
+    createDate
+], Book);
+let Pen = class Pen {
+    constructor(id) {
+        this.id = id;
+    }
+};
+Pen = __decorate([
+    createDate
+], Pen);
+const newBook = new Book(12);
+const pen = new Pen(55);
+console.log(newBook);
+console.log(newBook.createdAt);
+console.log(pen);
