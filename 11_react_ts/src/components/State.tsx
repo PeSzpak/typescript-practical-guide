@@ -1,7 +1,7 @@
-import React, {useState , ChangeEvent} from "react"
+import React, { useState, ChangeEvent } from "react"
 
 
-    const State = () => {
+const State = () => {
     const [text, setText] = useState<string | null>(null)
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -10,8 +10,8 @@ import React, {useState , ChangeEvent} from "react"
 
     return (
         <div>
-           <p>o texto é {text}</p>
-           <input type="text" onChange={handleChange} />
+            <p>o texto é {text}</p>
+            <input type="text" onChange={handleChange} />
         </div>
     )
 }
