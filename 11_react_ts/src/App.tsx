@@ -1,11 +1,21 @@
-import React from 'react';
+import React, { createContext } from 'react';
 import FirstComponent from './components/firtsComponent';
 import SecondyComponent from './components/secondyComponent';
 import Destructuring, { Category } from './components/Destructuring';
 import State from './components/State';
+//import { createContext } from 'vm';   Usado para rodar codigos n confiaveis.
 
 type textOrNull = string | null
 type fixed = "Isso" | "ou" | "Aquilo"
+
+interface IAppContext {
+  language: string
+  framework: string
+  projects: number
+}
+
+export const AppContext = createContext< IAppContext | null> (null)
+
 function App() {
 
 
@@ -25,10 +35,18 @@ function App() {
   const testandoFixed: fixed = "Isso"
  // const testandoFixed2: fixed = "Isdsdasasdaso" erro pois só aceita valores ja declarados na tipagem 
 
+ const contextValue: IAppContext = {
+  language: "JavaScript",
+  framework: "Express",
+  projects: 5,
+ }
 
   return (
+    <AppContext.Provider value={contextValue}>
     <div className="App">
       <h1>TypeScript com React</h1>
+
+      <hr />
       <h2>Nome: {name}</h2>
       <p>Idade: {age}</p>
       {isStuding && (
@@ -36,7 +54,11 @@ function App() {
           <p>Está Estudando!</p>
         </div>
       )}
+      <hr />
+
       <h3>{userGreeting(name)}</h3>
+
+      <hr />
       <FirstComponent />
       <SecondyComponent name="Segundo" />
       <Destructuring
@@ -53,6 +75,8 @@ function App() {
         tags={['python']}
         category={Category.P}
       />
+      <hr />
+      
       <State />
 
       {myText &&
@@ -62,6 +86,7 @@ function App() {
         <p>tem texto na variavel</p>
       }
     </div>
+    </AppContext.Provider>
   );
 }
 
