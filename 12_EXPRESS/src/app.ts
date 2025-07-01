@@ -6,6 +6,14 @@ import { NextFunction } from "express";
 const app = express();
 
 app.use(express.json());
+
+function showPath(req: Request, res:Response, next: NextFunction) {
+    console.log(req.path)
+    next()
+
+    
+}
+
 app.get("/", (req, res) => {
     res.send("Hello Express!");
 })
@@ -84,6 +92,8 @@ app.get("/api/user/:id/access", checkUser, (req: Request, res:Response) => {
 
         res.json({msg: "Bem vindo a area admin"})
 })
+
+
 
 app.listen(3000, () => {
     console.log ("Aplicação de TS + express está funcionando!");
