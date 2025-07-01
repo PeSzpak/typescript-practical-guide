@@ -11,7 +11,7 @@ function showPath(req: Request, res:Response, next: NextFunction) {
     console.log(req.path)
     next()
 
-    
+
 }
 
 app.get("/", (req, res) => {
@@ -93,6 +93,16 @@ app.get("/api/user/:id/access", checkUser, (req: Request, res:Response) => {
         res.json({msg: "Bem vindo a area admin"})
 })
 
+app.get(
+    "/api/user/:id/details/:name",
+    (req: Request<{id: string, name: string}>,
+     res: Response<{status: boolean}>
+    ) => {
+        console.log(`ID: ${req.params.id}`)
+        console.log(`Name: ${req.params.name}`)
+        res.json({status: true})
+    }
+)
 
 
 app.listen(3000, () => {
