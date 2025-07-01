@@ -157,26 +157,9 @@ TypeScript é um superset do JavaScript que adiciona **tipagem estática**, **in
 
 ---
 
-##  Estrutura do Projeto
-
-```bash
-typescript-course/
-├── fundamentals/
-├── types-functions/
-├── interfaces-objects/
-├── generics/
-├── classes-poo/
-├── modules-imports/
-├── decorators/
-├── react-ts/
-└── README.md
-```
-
----
-
 ##  Tecnologias Utilizadas
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?style=for-the-badge&logo=typescript&logoColor=white)
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
