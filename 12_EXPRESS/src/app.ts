@@ -29,6 +29,16 @@ app.get("/api/interfaces", (req: Request, res: Response) => {
     res.send("Ultilizando as interfaces")
 })
 
+app.get("/api/json", (req: Request, res:Response)=> {
+        res.json ({
+                name:"Boomber jacket",
+                price: 8.999, 
+                color: "browm",
+                size: ['PP','P','M','G','GG','GG1'],
+                inStock: true
+        })
+})
+
 app.listen(3000, () => {
     console.log ("Aplicação de TS + express está funcionando!");
 })
