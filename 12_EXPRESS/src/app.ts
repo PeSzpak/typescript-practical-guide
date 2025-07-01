@@ -1,6 +1,7 @@
 //console.log("Express + TS")
 
 import express, {Request, Response} from "express";
+import { NextFunction } from "express";
 
 const app = express();
 
@@ -69,6 +70,20 @@ function getUser(req: Request, res:Response) {
         console.log(`Resgatando o usuario com id: ${req.params.id}`)
         res.send("O usuario foi encontrado")
 }
+
+function checkUser(req: Request, res:Response, next: NextFunction) {
+    if(req.params.id === "1" ) {
+        console.log("Pode serguir")
+        next()
+    }else {
+        console.log("Acesso Restrito!!!!")
+    }
+}
+
+app.get("/api/user/:id/access", checkUser, (req: Request, res:Response) => {
+
+        res.json({msg: "Bem vindo a area admin"})
+})
 
 app.listen(3000, () => {
     console.log ("Aplicação de TS + express está funcionando!");
