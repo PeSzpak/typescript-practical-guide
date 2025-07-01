@@ -6,13 +6,23 @@ const app = express();
 
 app.use(express.json());
 app.get("/", (req, res) => {
-    return res.send("Hello Express!");
+    res.send("Hello Express!");
 })
 
 app.post("/api/product", (req, res) => {
     console.log(req.body)
 
-    return res.send("Produto adicionado!")
+    res.send("Produto adicionado!")
+})
+
+app.all("/api/product/check", (req, res) =>{
+        if(req.method === "POST") {
+            res.send("Inseriu algum registro")
+        }else if (req.method === "GET") {
+            res.send("leu algum registro!")
+        }else {
+            res.send("Não podemos realizar esta operação!")
+        }
 })
 
 app.listen(3000, () => {
