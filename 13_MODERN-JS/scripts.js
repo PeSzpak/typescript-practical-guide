@@ -94,3 +94,17 @@ const availableUsers = users.filter((user) => user.available)
 const notAvailableUsers = users.filter((user) => !user.available)
 console.log(availableUsers)
 console.log(notAvailableUsers)
+
+//Map 
+const products = [
+    {name: "Camiseta Lacoste", price: 899.89 , category: "roupas"},
+    {name: "Calça de Alfaiataria Ysl", price: 5900, category: "roupas"},
+    {name: "Perfume Creed Aventus", price: 2900 , category: "perfume"},   
+    {name: "Bolsa hermès", price:500000 , category: "bolsas"},
+]
+
+products.map((product) => {
+    if(product.category === 'roupas') {
+        product.onSale = true+
+    }
+})
