@@ -176,3 +176,22 @@ console.log(camisa.name)
 console.log(camisa.productWithDiscount(10))
 console.log(camisa.productWithDiscount(50))
 
+//Herança 
+class ProductWithAttributes extends Product {
+    constructor(name, price, colors) {
+        super(name, price)
+        this.colors = colors
+    }
+
+    showColors() {
+        console.log("As cores são")
+        this.colors.forEach((color) => {
+            console.log(color)
+        })
+    }
+}
+
+const hat = new ProductWithAttributes("chapéu de palha", 29.88, ["Azul", "Vermelho", "Marrom", "Cinza", "Bege"])
+console.log(hat.name)
+console.log(hat.productWithDiscount(30))
+hat.showColors()
