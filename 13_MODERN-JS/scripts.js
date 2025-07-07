@@ -105,6 +105,14 @@ const products = [
 
 products.map((product) => {
     if(product.category === 'roupas') {
-        product.onSale = true+
+        product.onSale = true
     }
 })
+console.log(products)
+
+//template literals 
+const userName = 'matheus'
+const age = 30
+
+console.log(`O nome do usuario é ${userName} e ele tem ${age} anos.`)
+console.log('O nome do usuario é ' + userName + 'e ele tem ' + age + ' anos.')
