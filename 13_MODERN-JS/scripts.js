@@ -122,6 +122,7 @@ const fruits = ["pitaya", "maracujá", "melancia"]
 
 const [f1, f2, f3] = fruits
 
+console.log(fruits)
 console.log(f1)
 console.log(f3)
 
@@ -135,3 +136,25 @@ const productDetails = {
 const  {name: productName, price , category: productCategory, color} = productDetails
 
 console.log(`O nome do produto é ${productName}, custa R$${price}, pertence a categoria ${productCategory} e é da cor ${color}`)
+
+//spread operator
+const a1 = [1, 2, 3]
+const a2 = [4, 5, 6]
+
+const a3 = [...a1, ...a2]
+
+console.log(a3)
+
+const a4 = [0, ...a1, 4]
+
+console.log (a4)
+
+const carName = {name: "Gol"}
+const carBrand = {brand: "Vw"}
+const carInfo = {km: 100000, price: 49000 }
+
+const car = {...carName, ...carBrand, ...carInfo}
+const car2 = {...carName, ...carBrand, ...carInfo, wheels: 4}
+console.log(car)
+console.log(car2)
+
