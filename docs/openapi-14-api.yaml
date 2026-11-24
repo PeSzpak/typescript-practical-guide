@@ -1,0 +1,75 @@
+openapi: 3.0.3
+info:
+  title: 14-API — Express com JavaScript
+  version: 1.0.0
+  description: |
+    Duas APIs mínimas da seção 14 do curso. `14-API/first-API` tem só `GET /`;
+    `14-API/second-API` tem `GET /` e `POST /createproduct`. Ambas escutam na porta 3000
+    e aceitam JSON ou formulário (urlencoded). Nada é persistido.
+  license:
+    name: ISC
+    url: https://opensource.org/license/isc-license-txt
+servers:
+  - url: http://localhost:3000
+    description: npm start (first-API ou second-API)
+security: []  # nenhuma rota exige autenticação
+paths:
+  /:
+    get:
+      summary: Rota inicial (first-API e second-API)
+      operationId: getRoot
+      responses:
+        '200':
+          description: Mensagem fixa
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: Primeira rota criada com sucesso }
+  /createproduct:
+    post:
+      summary: Valida e "cria" um produto (somente second-API)
+      operationId: createProduct
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema: { $ref: '#/components/schemas/ProductInput' }
+            example: { name: Caneca, price: 29.9 }
+          application/x-www-form-urlencoded:
+            schema: { $ref: '#/components/schemas/ProductInput' }
+      responses:
+        '201':
+          description: Produto aceito (apenas logado no console)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: O produto Caneca foi criado com sucesso }
+        '422':
+          description: Campo name ausente ou vazio
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { message: O campo nome é obrigatorio }
+        '500':
+          description: |
+            Requisição sem corpo: no Express 5 `req.body` fica undefined e
+            `req.body.name` lança TypeError (limitação conhecida). Resposta em HTML.
+          content:
+            text/html:
+              schema: { type: string }
+components:
+  schemas:
+    Message:
+      type: object
+      required: [message]
+      properties:
+        message: { type: string }
+    ProductInput:
+      type: object
+      required: [name]
+      properties:
+        name: { type: string, example: Caneca }
+        price:
+          type: number
+          description: Opcional e não validado
+          example: 29.9
