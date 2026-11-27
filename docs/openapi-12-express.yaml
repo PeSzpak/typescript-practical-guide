@@ -1,0 +1,233 @@
+openapi: 3.0.3
+info:
+  title: 12_EXPRESS — TypeScript + Express
+  version: 1.0.0
+  description: |
+    API de estudo da seção 12 do curso (Express 5 com TypeScript, `12_EXPRESS/src/app.ts`).
+    Não há banco de dados: todas as respostas são fixas ou montadas a partir dos parâmetros.
+  license:
+    name: ISC
+    url: https://opensource.org/license/isc-license-txt
+servers:
+  - url: http://localhost:3000
+    description: npm run dev
+tags:
+  - name: basico
+    description: Rotas de texto simples
+  - name: produtos
+    description: Rotas de produto (dados fixos)
+  - name: usuarios
+    description: Rotas de usuário e middleware
+security: []  # nenhuma rota exige autenticação
+paths:
+  /:
+    get:
+      tags: [basico]
+      summary: Hello world
+      operationId: getRoot
+      responses:
+        '200':
+          description: Texto fixo
+          content:
+            text/html:
+              schema: { type: string, example: Hello Express! }
+  /api/interfaces:
+    get:
+      tags: [basico]
+      summary: Exemplo tipando Request e Response
+      operationId: getInterfaces
+      responses:
+        '200':
+          description: Texto fixo
+          content:
+            text/html:
+              schema: { type: string, example: Ultilizando as interfaces }
+  /api/json:
+    get:
+      tags: [produtos]
+      summary: Devolve um produto fixo em JSON
+      operationId: getJson
+      responses:
+        '200':
+          description: Produto de exemplo
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Jacket' }
+  /api/error:
+    get:
+      tags: [basico]
+      summary: Lança e trata um erro
+      operationId: getError
+      responses:
+        '500':
+          description: Erro capturado no try/catch
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { msg: Algo deu errado! }
+  /api/product:
+    post:
+      tags: [produtos]
+      summary: Recebe um produto e só loga o body
+      operationId: createProduct
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              additionalProperties: true
+            example: { name: Caneca, price: 29.9 }
+      responses:
+        '200':
+          description: Confirmação em texto (nada é salvo)
+          content:
+            text/html:
+              schema: { type: string, example: Produto adicionado! }
+  /api/product/check:
+    get:
+      tags: [produtos]
+      summary: app.all — ramo GET
+      operationId: checkProductGet
+      responses:
+        '200':
+          description: Texto
+          content:
+            text/html:
+              schema: { type: string, example: leu algum registro! }
+    post:
+      tags: [produtos]
+      summary: app.all — ramo POST
+      operationId: checkProductPost
+      responses:
+        '200':
+          description: Texto
+          content:
+            text/html:
+              schema: { type: string, example: Inseriu algum registro }
+    put:
+      tags: [produtos]
+      summary: app.all — qualquer outro método (PUT, PATCH, DELETE...)
+      operationId: checkProductOther
+      responses:
+        '200':
+          description: Texto
+          content:
+            text/html:
+              schema: { type: string, example: Não podemos realizar esta operação! }
+  /api/product/{id}:
+    get:
+      tags: [produtos]
+      summary: Busca produto por id (só o id 1 existe)
+      operationId: getProduct
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: |
+            id = 1 devolve o produto em JSON. Qualquer outro id devolve o texto
+            "Produto não encontrado!", também com status 200.
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Product' }
+            text/html:
+              schema: { type: string, example: Produto não encontrado! }
+  /api/product/{id}/review/{reviewId}:
+    get:
+      tags: [produtos]
+      summary: Dois parâmetros de rota
+      operationId: getProductReview
+      parameters:
+        - $ref: '#/components/parameters/Id'
+        - name: reviewId
+          in: path
+          required: true
+          schema: { type: string, example: '5' }
+      responses:
+        '200':
+          description: Texto com os parâmetros
+          content:
+            text/html:
+              schema: { type: string, example: Acessando a review 5 do produto 1 }
+  /api/user/{id}:
+    get:
+      tags: [usuarios]
+      summary: Handler declarado como função separada
+      operationId: getUser
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Texto fixo para qualquer id
+          content:
+            text/html:
+              schema: { type: string, example: O usuario foi encontrado }
+  /api/user/{id}/access:
+    get:
+      tags: [usuarios]
+      summary: Rota protegida pelo middleware checkUser
+      operationId: getUserAccess
+      description: |
+        Só o id 1 passa pelo middleware. Para qualquer outro id o middleware
+        loga "Acesso Restrito!!!!" e não chama next() nem envia resposta:
+        a requisição fica pendurada até o cliente desistir (limitação conhecida).
+      parameters:
+        - $ref: '#/components/parameters/Id'
+      responses:
+        '200':
+          description: Acesso liberado (id = 1)
+          content:
+            application/json:
+              schema: { $ref: '#/components/schemas/Message' }
+              example: { msg: Bem vindo a area admin }
+  /api/user/{id}/details/{name}:
+    get:
+      tags: [usuarios]
+      summary: Request e Response com generics
+      operationId: getUserDetails
+      parameters:
+        - $ref: '#/components/parameters/Id'
+        - name: name
+          in: path
+          required: true
+          schema: { type: string, example: ana }
+      responses:
+        '200':
+          description: Sempre true
+          content:
+            application/json:
+              schema:
+                type: object
+                required: [status]
+                properties:
+                  status: { type: boolean, example: true }
+components:
+  parameters:
+    Id:
+      name: id
+      in: path
+      required: true
+      schema: { type: string, example: '1' }
+  schemas:
+    Message:
+      type: object
+      required: [msg]
+      properties:
+        msg: { type: string }
+    Product:
+      type: object
+      properties:
+        id: { type: integer, example: 1 }
+        name: { type: string, example: Jordan Cap }
+        price: { type: number, example: 10 }
+    Jacket:
+      type: object
+      properties:
+        name: { type: string, example: Boomber jacket }
+        price: { type: number, example: 8.999 }
+        color: { type: string, example: browm }
+        size:
+          type: array
+          items: { type: string }
+          example: [PP, P, M, G, GG, GG1]
+        inStock: { type: boolean, example: true }
